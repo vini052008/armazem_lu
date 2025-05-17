@@ -221,7 +221,7 @@ class BasketButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 120,
+      width: 140,
       margin: const EdgeInsets.only(right: 10),
       padding: const EdgeInsets.all(8),
       decoration: BoxDecoration(
@@ -244,21 +244,35 @@ class BasketButton extends StatelessWidget {
               children: [
                 Image.asset(image, height: 60),
                 const SizedBox(height: 5),
-                Text(label, textAlign: TextAlign.center),
+                Text(
+                  label,
+                  textAlign: TextAlign.center,
+                  style: const TextStyle(fontSize: 14),
+                ),
               ],
             ),
           ),
-          const SizedBox(height: 8),
+          const Spacer(),
+          Text(
+            "R\$ ${price.toStringAsFixed(2)}/un",
+            style: const TextStyle(
+              fontSize: 12,
+              fontWeight: FontWeight.bold,
+              color: Color.fromARGB(255, 70, 111, 51),
+            ),
+          ),
+          const SizedBox(height: 4),
           ElevatedButton.icon(
             onPressed: () {
               Provider.of<CartModel>(
                 context,
                 listen: false,
               ).addItem(label, price);
+
               ScaffoldMessenger.of(context).showSnackBar(
                 SnackBar(
                   content: Text('Cesta "$label" adicionada à sacola!'),
-                  duration: Duration(milliseconds: 500),
+                  duration: const Duration(milliseconds: 500),
                   backgroundColor: const Color.fromARGB(255, 113, 160, 94),
                 ),
               );
@@ -270,15 +284,6 @@ class BasketButton extends StatelessWidget {
               foregroundColor: Colors.white,
               padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
               textStyle: const TextStyle(fontSize: 12),
-            ),
-          ),
-          SizedBox(height: 3),
-          Text(
-            "R\$ ${price.toStringAsFixed(2)}/un",
-            style: const TextStyle(
-              fontSize: 10,
-              fontWeight: FontWeight.bold,
-              color: Color.fromARGB(255, 70, 111, 51),
             ),
           ),
         ],
