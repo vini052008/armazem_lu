@@ -231,7 +231,7 @@ class BasketButton extends StatelessWidget {
       ),
       child: Column(
         children: [
-          GestureDetector(
+          GestureDetector( 
             onTap: () {
               Navigator.push(
                 context,
