@@ -143,7 +143,7 @@ class HomePage extends StatelessWidget {
                   },
                 ),
               ),
-              const SizedBox(height: 20),
+              const SizedBox(height: 20), 
               const SectionTitle(title: 'Produtos Disponíveis:'),
               const SizedBox(height: 10),
               ListView.builder(
